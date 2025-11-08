@@ -350,6 +350,9 @@
     let audio = new Audio('click.wav')
     let hover_audio = new Audio('hover.mp3')
    let div_click = () => {
+         audio.currentTime = 0;
+        audio.play();
+       
         tdiv.removeEventListener('click',div_click);
         document.querySelector('.greet').classList.remove('hidden');
         document.body.classList.remove('xs:overflow-y-hidden');
@@ -423,13 +426,13 @@
 
         typeEffect2();
 
-        audio.currentTime = 0;
-        audio.play();
+       
         tdiv.style.transition = "ease 1s";
         //tdiv.style.left = '0%'; 
         //tdiv.style.top = '0%';
         
-        if(window.innerWidth <= 380) tdiv.style.transform = 'translateY(-5vh)'; 
+        if(window.innerWidth <= 350) tdiv.style.transform = 'translateY(-1vh)'; 
+        else if(window.innerWidth <= 380 && window.innerWidth > 350) tdiv.style.transform = 'translateY(-5vh)'; 
         else if(window.innerWidth <= 450 && window.innerWidth > 380) tdiv.style.transform = 'translateY(-15vh)';
         else tdiv.style.transform = 'translate(-25vw,-9vh)';
 
@@ -1033,5 +1036,6 @@ greeting();
 
 
 </script>
+
 
 </html>
